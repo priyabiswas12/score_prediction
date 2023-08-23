@@ -3,6 +3,8 @@
 from setuptools import find_packages,setup
 from typing import List
 
+
+
 HYPEN_E_DOT='-e .'
 def get_requirements(file_path:str)->List[str]:
     '''
@@ -18,6 +20,10 @@ def get_requirements(file_path:str)->List[str]:
     
     return requirements
 
+
+
+
+
 setup( #metadata abt entire project
 name="mlproj",
 version='0.0.1',
@@ -26,7 +32,5 @@ author_email="priyabiswas12@gmail.com",
 packages=find_packages(), #this function can find any folder as a package that contains the __init__.py file
 #install_requires=["pandas", "numpy", "seaborn"],
 install_requires=get_requirements('requirements.txt')
-
-
 
 )
