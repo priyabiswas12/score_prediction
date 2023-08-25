@@ -25,15 +25,15 @@ class ModelTrainerConfig:
 
 class ModelTrainer:
     def __init__(self):
-        self.model_trainer_config=ModelTrainerConfig()
+        self.model_trainer_config=ModelTrainerConfig() #get the model path artifacts\model.pkl
 
 
     def initiate_model_trainer(self,train_array,test_array):
         try:
             logging.info("Split training and test input data")
             X_train,y_train,X_test,y_test=(
-                train_array[:,:-1],
-                train_array[:,-1],
+                train_array[:,:-1], #everythin but last column
+                train_array[:,-1], #last column
                 test_array[:,:-1],
                 test_array[:,-1]
             )
@@ -85,7 +85,7 @@ class ModelTrainer:
             }
 
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
-                                             models=models,param=params)
+                                             models=models,param=params) #evaluate model is func defined in utils.py
             
             ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
