@@ -1,5 +1,10 @@
 import sys
 import pandas as pd
+import numpy as np
+import os
+
+
+from sklearn.preprocessing import StandardScaler
 from src.exception import CustomException
 from src.utils import load_object
 
@@ -26,7 +31,7 @@ class PredictPipeline:
 
 
 class CustomData: # responsible for mapping all the inputs that we're giving the html to the backend 
-    def __init__(  self,
+    def __init__(  self, #we are getting these values form the web app
         gender: str,
         race_ethnicity: str,
         parental_level_of_education,
@@ -65,3 +70,26 @@ class CustomData: # responsible for mapping all the inputs that we're giving the
 
         except Exception as e:
             raise CustomException(e, sys)
+        
+
+
+
+
+# if __name__=="__main__":  
+#     data=CustomData(
+#                 gender="Female",
+#                 race_ethnicity="Group B",
+#                 parental_level_of_education="some college",
+#                 lunch="standard",
+#                 test_preparation_course="completed",
+#                 reading_score=float(15),
+#                 writing_score=float(15))
+
+#     pred_df=data.get_data_as_data_frame()
+#     print(pred_df)
+#     print("Before Prediction")
+
+#     predict_pipeline=PredictPipeline()
+#     print("Mid Prediction")
+#     results=predict_pipeline.predict(pred_df)
+#     print("after Prediction")

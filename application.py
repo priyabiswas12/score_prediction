@@ -22,7 +22,7 @@ def index():
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
     if request.method=='GET':
-        return render_template('home.html')
+        return render_template('home.html') #input data files to provide to model will be in home.html
     else:
         data=CustomData(
             gender=request.form.get('gender'),
