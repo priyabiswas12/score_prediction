@@ -1,1 +1,1 @@
-## End to End ml proj
+## End to End student score prediction project
